@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <a>Субстанция</a>
+        <a href="generics">Дженерики</a>
+        <a href="logout">Выйти из аккаунта</a>
+        <hr>z
+    <a href="create-drug">Добавить субстанцию в базу данных</a>
+    <table class="table table-stripped">
+        <tr>
+            <td>Id</td>
+            <td>Субстанция</td>
+            <td>Рецептурное ли</td>
+            <td>Форма выпуска</td>
+            <td>Удаление</td>
+            <td>Обновление</td>
+        </tr>
+        <tr th:each="drug: ${drugs}">
+            <td th:text="${drug.id}"></td>
+            <td th:text="${drug.name}"></td>
+            <td th:text="${drug.prescription}"></td>
+            <td th:text="${drug.drugForm}"></td>
+            <td>
+                <a class="text-danger" th:href="@{delete-drug(id=${drug.id})}">Удалить</a>
+            </td>
+            <td>
+                <a th:href="@{update-drug(id=${drug.id})}">Обновить</a>
+            </td>
+        </tr>
+    </table>
+    </div>
+</body>
+</html>

@@ -10,20 +10,23 @@
         <a>Субстанция</a>
         <a href="generics">Дженерики</a>
         <a href="logout">Выйти из аккаунта</a>
-        <hr>z
+        <hr>
     <a href="create-drug">Добавить субстанцию в базу данных</a>
-    <table class="table table-stripped">
+    <table class="table table-hover">
+        <thead>
         <tr>
-            <td>Id</td>
-            <td>Субстанция</td>
-            <td>Рецептурное ли</td>
-            <td>Форма выпуска</td>
-            <td>Удаление</td>
-            <td>Обновление</td>
+            <th scope="col">Id</th>
+            <th scope="col">Субстанция</th>
+            <th scope="col">Рецептурное ли</th>
+            <th scope="col">Форма выпуска</th>
+            <th scope="col">Удаление</th>
+            <th scope="col">Обновление</th>
         </tr>
+        </thead>
+        <tbody>
         <tr th:each="drug: ${drugs}">
-            <td th:text="${drug.id}"></td>
-            <td th:text="${drug.name}"></td>
+            <td scope="row" th:text="${drug.id}"></td>
+            <th scope="row" th:text="${drug.name}"></th>
             <td th:text="${drug.prescription}"></td>
             <td th:text="${drug.drugForm}"></td>
             <td>

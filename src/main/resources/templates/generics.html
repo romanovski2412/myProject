@@ -12,22 +12,25 @@
         <a href="logout">Выйти из аккаунта</a>
         <hr>
     <a href="create-generic">Добавить дженерик в базу данных</a>
-    <table class="table table-stripped">
+    <table class="table">
+        <thead class="thead-dark">
         <tr>
-            <td>Id</td>
-            <td>Наименование</td>
-            <td>Количество таблеток</td>
-            <td>Производитель</td>
-            <td>Субстанция</td>
-            <td>Удаление</td>
-            <td>Обновление</td>
+            <th scope="col">Id</th>
+            <th scope="col">Наименование</th>
+            <th scope="col">Количество таблеток</th>
+            <th scope="col">Производитель</th>
+            <th scope="col">Субстанция</th>
+            <th scope="col">Удаление</th>
+            <th scope="col">Обновление</th>
         </tr>
+        </thead>
+        <tbody>
         <tr th:each="generic: ${generics}">
             <td th:text="${generic.id}"></td>
             <td th:text="${generic.name}"></td>
             <td th:text="${generic.pillsQuantity}"></td>
             <td th:text="${generic.manufacturer}"></td>
-            <td th:text="${generic.drug.name}"></td>
+            <th scope="row" th:text="${generic.drug.name}"></th>
             <td>
                 <a class="text-danger" th:href="@{delete-generic(id=${generic.id})}">Удалить</a>
             </td>
@@ -35,6 +38,7 @@
                 <a th:href="@{update-generic(id=${generic.id})}">Обновить</a>
             </td>
         </tr>
+        </tbody>
     </table>
     </div>
 </body>

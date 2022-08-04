@@ -1,7 +1,7 @@
 package com.example.myProject.controller;
 
 
-import com.example.myProject.MyProjectApplication;
+
 import com.example.myProject.model.Drug;
 import com.example.myProject.model.Generic;
 import com.example.myProject.repository.DrugRepository;
